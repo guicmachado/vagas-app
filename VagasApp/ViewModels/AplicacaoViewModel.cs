@@ -45,9 +45,9 @@ namespace VagasApp.ViewModels
 
 		public override Task LoadAsync()
 		{
-			Nome = "Guilherme Machado";
-			Email = "guilhermecm@gmail.com";
-			Telefone = "(11) 98578-5777";
+			Nome = "";
+			Email = "";
+			Telefone = "";
 
 			return base.LoadAsync();
 		}
