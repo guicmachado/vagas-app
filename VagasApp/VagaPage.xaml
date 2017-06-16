@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<base:BasePage 
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:base="clr-namespace:VagasApp;assembly=VagasApp"
+	x:Class="VagasApp.VagaPage">
+
+	<StackLayout>
+		<Label Text="Selecione o Cargo:" Margin="5, 10, 0, 0" />
+		<Picker ItemsSource="{Binding Cargos}" ItemDisplayBinding="{Binding Descricao}" SelectedIndex="{Binding SelectedIndexCargo}" SelectedIndexChanged="PckCargo_SelectedIndexChanged" Margin="5, 0, 0, 0" />
+		<ListView
+			HasUnevenRows="true"
+			SeparatorVisibility="None"
+        	ItemsSource="{Binding Vagas}"
+			ItemTapped="ListView_SelectedItem"
+			SelectedItem="{Binding SelectedItemVaga}">
+			<ListView.ItemTemplate>
+	            <DataTemplate>
+	                <ViewCell>
+						<StackLayout Orientation="Vertical" Margin="10, 5, 10, 5" BackgroundColor="#eee">
+							<StackLayout Orientation="Horizontal" Margin="10, 10, 10, 5">
+	                            <Label Text="{Binding Titulo}"
+									    FontAttributes="Bold" 
+	                                    FontSize="Medium"
+										TextColor="#eb772a" />
+								<Label Text="{Binding Data}"
+									    FontSize="Small"
+										HorizontalOptions="EndAndExpand" />
+							</StackLayout>
+							<StackLayout Orientation="Horizontal" Margin="10, 5, 10, 10">
+	                            <Label Text="{Binding Empresa}"
+									    FontSize="Small" />
+								<Label Text="{Binding Local}"
+									    FontSize="Small"
+										HorizontalOptions="EndAndExpand" />
+							</StackLayout>
+                        </StackLayout>
+	                </ViewCell>
+	            </DataTemplate>
+	        </ListView.ItemTemplate>
+		</ListView>
+	</StackLayout>
+</base:BasePage>

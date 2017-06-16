@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<base:BasePage 
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:base="clr-namespace:VagasApp;assembly=VagasApp"
+	x:Class="VagasApp.AplicacaoPage">
+
+	<StackLayout Margin="10,10,10,10">
+		<StackLayout Margin="0,0,0,20">
+			<Label Text="Nome:" />
+			<Entry Text="{Binding Nome}" />
+		</StackLayout>
+		<StackLayout Margin="0,0,0,20">
+			<Label Text="E-mail:" />
+			<Entry Text="{Binding Email}" />
+		</StackLayout>
+		<StackLayout Margin="0,0,0,20">
+			<Label Text="Telefone:" />
+			<Entry Text="{Binding Telefone}" />
+		</StackLayout>
+		<StackLayout Margin="0,0,0,20">
+			<Label Text="Informações Adicionais:" />
+			<Editor Text="{Binding Informacoes}" HeightRequest="100" />
+		</StackLayout>
+		<Button Text="Enviar" Command="{Binding SendCommand}" BackgroundColor="#eee" TextColor="#eb772a" />
+	</StackLayout>
+</base:BasePage>

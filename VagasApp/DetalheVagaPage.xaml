@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<base:BasePage 
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:base="clr-namespace:VagasApp;assembly=VagasApp"
+	x:Class="VagasApp.DetalheVagaPage">
+
+	<ScrollView>
+		<StackLayout Margin="10,10,10,10">
+			<StackLayout Orientation="Horizontal" Margin="0,0,0,20">
+				<Label Text="{Binding Vaga.Titulo}" FontSize="Medium" FontAttributes="Bold" TextColor="#eb772a" />
+				<Label Text="{Binding Vaga.Data}" HorizontalOptions="EndAndExpand" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" Margin="0,0,0,20">
+				<Label Text="Empresa: " />
+				<Label Text="{Binding Vaga.Empresa}" FontAttributes="Bold" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" Margin="0,0,0,20">
+				<Label Text="Local: " />
+				<Label Text="{Binding Vaga.Local}" FontAttributes="Bold" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" Margin="0,0,0,20">
+				<Label Text="Contratação: " />
+				<Label Text="{Binding Vaga.FormaContratacao}" FontAttributes="Bold" />
+			</StackLayout>
+			<StackLayout Margin="0,0,0,20">
+				<Label Text="Descrição: " />
+				<Label Text="{Binding Vaga.Descricao}" FontAttributes="Bold" />
+			</StackLayout>
+			<Button Text="Aplicar" Command="{Binding ApplyCommand}" BackgroundColor="#eee" TextColor="#eb772a" />
+		</StackLayout>
+	</ScrollView>
+</base:BasePage>
