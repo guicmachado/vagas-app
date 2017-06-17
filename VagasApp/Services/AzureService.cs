@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using VagasApp.Models;
 using Xamarin.Forms;
 
-[assembly: Dependency(typeof(VagasApp.Services.AzureService))]
+//[assembly: Dependency(typeof(VagasApp.Services.AzureService))]
 namespace VagasApp.Services
 {
 	public class AzureService : IAzureService

@@ -26,6 +26,8 @@ namespace VagasApp.Droid
 				return instance;
 			}
 		}
+		// Flag to enable notification
+		private const bool NotificationFlag = false;
 
 		protected override void OnCreate(Bundle bundle)
 		{
@@ -43,23 +45,27 @@ namespace VagasApp.Droid
 
 			LoadApplication(new App());
 
-			try
+			if (NotificationFlag)
 			{
-				// Check to ensure everything's set up right
-				GcmClient.CheckDevice(this);
-				GcmClient.CheckManifest(this);
-				// Register for push notifications
-				System.Diagnostics.Debug.WriteLine("Registering...");
-				GcmClient.Register(this, PushHandlerBroadcastReceiver.SENDER_IDS);
+				try
+				{
+					// Check to ensure everything's set up right
+					GcmClient.CheckDevice(this);
+					GcmClient.CheckManifest(this);
+					// Register for push notifications
+					System.Diagnostics.Debug.WriteLine("Registering...");
+					GcmClient.Register(this, PushHandlerBroadcastReceiver.SENDER_IDS);
+				}
+				catch (Java.Net.MalformedURLException)
+				{
+					CreateAndShowDialog("There was an error creating the client. Verify the URL.", "Error");
+				}
+				catch (Exception e)
+				{
+					CreateAndShowDialog(e.Message, "Error");
+				}	
 			}
-			catch (Java.Net.MalformedURLException)
-			{
-				CreateAndShowDialog("There was an error creating the client. Verify the URL.", "Error");
-			}
-			catch (Exception e)
-			{
-				CreateAndShowDialog(e.Message, "Error");
-			}
+
 		}
 
 		private void CreateAndShowDialog(String message, String title)

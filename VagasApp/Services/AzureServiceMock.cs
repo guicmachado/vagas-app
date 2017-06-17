@@ -5,7 +5,7 @@ using Microsoft.WindowsAzure.MobileServices;
 using VagasApp.Models;
 using Xamarin.Forms;
 
-//[assembly: Dependency(typeof(VagasApp.Services.AzureServiceMock))]
+[assembly: Dependency(typeof(VagasApp.Services.AzureServiceMock))]
 namespace VagasApp.Services
 {
 	public class AzureServiceMock : IAzureService
